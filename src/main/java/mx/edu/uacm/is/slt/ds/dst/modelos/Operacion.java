@@ -1,4 +1,6 @@
-package mx.edu.uacm.is.slt.ds.dst.dst.modelos;
+package mx.edu.uacm.is.slt.ds.dst.modelos;
+
+import mx.edu.uacm.is.slt.ds.dst.servicios.Visitante;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,27 +13,20 @@ public class Operacion implements Componente{
     private String estado;
     private List<Tarea> tareas;
 
+    public Operacion(String id, String nombre, String descripcion, String estado, List<Tarea> tareas) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.tareas = tareas;
+    }
+
     public Operacion() {
         this.tareas = new ArrayList<>();
     }
 
     @Override
-    public void ejecutar() {
-
-    }
-
-    @Override
-    public void pausar() {
-
-    }
-
-    @Override
-    public void reanudar() {
-
-    }
-
-    @Override
-    public void detener() {
+    public void aceptar(Visitante visitante) {
 
     }
 

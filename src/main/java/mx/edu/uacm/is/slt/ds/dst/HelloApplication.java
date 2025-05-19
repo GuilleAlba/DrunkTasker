@@ -1,4 +1,4 @@
-package mx.edu.uacm.is.slt.ds.dst.dst;
+package mx.edu.uacm.is.slt.ds.dst;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
