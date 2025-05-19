@@ -1,4 +1,6 @@
-package mx.edu.uacm.is.slt.ds.dst.dst.modelos;
+package mx.edu.uacm.is.slt.ds.dst.modelos;
+
+import mx.edu.uacm.is.slt.ds.dst.servicios.Visitante;
 
 public class Tarea implements Componente{
 
@@ -8,26 +10,19 @@ public class Tarea implements Componente{
     private String estado;
     private String prioridad;
 
+    public Tarea(String id, String nombre, String descripcion, String estado, String prioridad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.prioridad = prioridad;
+    }
+
     public Tarea() {
     }
 
     @Override
-    public void ejecutar() {
-
-    }
-
-    @Override
-    public void pausar() {
-
-    }
-
-    @Override
-    public void reanudar() {
-
-    }
-
-    @Override
-    public void detener() {
+    public void aceptar(Visitante visitante) {
 
     }
 
