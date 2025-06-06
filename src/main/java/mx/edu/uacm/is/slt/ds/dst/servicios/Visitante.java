@@ -5,5 +5,5 @@ import mx.edu.uacm.is.slt.ds.dst.modelos.Tarea;
 
 public interface Visitante {
     void visitarOpreacion(Operacion operacion);
-    void visitarTarea(Tarea Tarea);
+    void visitarTarea(Tarea tarea);
 }

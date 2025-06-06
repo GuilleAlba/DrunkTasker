@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="mx.edu.uacm.is.slt.ds.dst.controladores.GestionOperacionesController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <HBox spacing="10" prefWidth="600.0">
+        <padding>
+            <Insets bottom="20.0" top="20.0"/>
+        </padding>
+        <Button onAction="#btnRegresar" text="Regresar" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#irNuevaOperacion" text="Crear Operación" />
+    </HBox>
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets bottom="30.0"/>
+        </padding>
+        <Label text="Visor de Operaciones" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    </HBox>
+    <TableView fx:id="operacionesTable" prefHeight="300">
+        <columns>
+            <TableColumn text="Id">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Nombre">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombre"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Descripcion">
+                <cellValueFactory>
+                    <PropertyValueFactory property="descripcion"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Estado" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="estado"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Detalles">
+                <cellValueFactory>
+                    <PropertyValueFactory property="ver"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Ejecutar">
+                <cellValueFactory>
+                    <PropertyValueFactory property="play"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Detener">
+                <cellValueFactory>
+                    <PropertyValueFactory property="detener"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Pausa">
+                <cellValueFactory>
+                    <PropertyValueFactory property="pausaB"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

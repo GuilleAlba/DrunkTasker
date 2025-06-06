@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="mx.edu.uacm.is.slt.ds.dst.HelloController">
+<VBox spacing="20.0"
+      xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="mx.edu.uacm.is.slt.ds.dst.controladores.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Label fx:id="operacion1"/>
-    <Label fx:id="tarea1"/>
-    <Label fx:id="tarea2"/>
-    <Label fx:id="estado"/>
-    <Button text="Ver Operaciones" onAction="#onHelloButtonClick"/>
+    <HBox spacing="10">
+        <Button onAction="#irOperacionesButtonClick" text="Ir Operaciones" />
+        <Button onAction="#irAcercaDe" text="Acerca de"/>
+    </HBox>
 </VBox>

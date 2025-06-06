@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<VBox spacing="100.0"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="mx.edu.uacm.is.slt.ds.dst.controladores.CreaTareaController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Button onAction="#btnRegresar" text="Regresar"/>
+    <VBox spacing="20">
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label style="-fx-font-weight: bold; -fx-min-width: 130;" text="* Nombre: " />
+            <TextField fx:id="nombre" maxWidth="Infinity" promptText="Ingrese un nombre de tarea" HBox.hgrow="ALWAYS" />
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label style="-fx-font-weight: bold; -fx-min-width: 130;" text="* Descripcion: " />
+            <TextArea fx:id="descripcion" promptText="Ingrese una descripcion de la tarea" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefRowCount="3"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label style="-fx-font-weight: bold; -fx-min-width: 130;" text="* Prioridad: " />
+            <ComboBox fx:id="prioridad" promptText="Elige una opcion" visibleRowCount="4" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label style="-fx-font-weight: bold; -fx-min-width: 130;" text="Tarea Previa: " />
+            <ComboBox fx:id="previa" promptText="Elige una opcion" visibleRowCount="4" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label style="-fx-font-weight: bold; -fx-min-width: 130;" text="Puede ser pausada: " />
+            <CheckBox fx:id="pausar" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+        </HBox>
+    </VBox>
+    <HBox alignment="CENTER">
+        <Button onAction="#validaCrea" text="Agregar Tarea"/>
+    </HBox>
+</VBox>

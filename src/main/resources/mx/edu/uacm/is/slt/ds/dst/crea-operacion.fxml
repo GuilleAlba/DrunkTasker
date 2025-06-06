@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="mx.edu.uacm.is.slt.ds.dst.controladores.CreaOperacionController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <AnchorPane>
+        <padding>
+            <Insets bottom="20.0"/>
+        </padding>
+        <Button text="Regresar" onAction="#regresar"/>
+    </AnchorPane>
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets bottom="30.0"/>
+        </padding>
+        <Label text="Crear Operacion" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    </HBox>
+    <VBox spacing="10">
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text="* Nombre: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <TextField fx:id="nombre" promptText="Ingrese un nombre de operacion" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text="* Descripcion: " style="-fx-font-weight: bold; -fx-min-width: 120;"/>
+            <TextArea fx:id="descripcion" promptText="Ingrese una descripcion de la operacion" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefRowCount="3"/>
+        </HBox>
+    </VBox>
+    <HBox spacing="10">
+        <padding>
+            <Insets bottom="20.0" top="20"/>
+        </padding>
+        <Label text="Tareas:" style="-fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Agregar Tarea" onAction="#irAgregarTarea"/>
+    </HBox>
+    <TableView fx:id="tareasTable" prefHeight="200">
+        <columns>
+            <TableColumn text="Id">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Nombre">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombre"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Descripcion">
+                <cellValueFactory>
+                    <PropertyValueFactory property="descripcion"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Estado" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="estado"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Detalles">
+                <cellValueFactory>
+                    <PropertyValueFactory property="ver"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Ejecutar">
+                <cellValueFactory>
+                    <PropertyValueFactory property="play"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Detener">
+                <cellValueFactory>
+                    <PropertyValueFactory property="detener"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Pausa">
+                <cellValueFactory>
+                    <PropertyValueFactory property="pausaB"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets bottom="20.0" top="20"/>
+        </padding>
+        <Button text="Agregar Operacion" onAction="#validaCreaOp"/>
+    </HBox>
+</VBox>
