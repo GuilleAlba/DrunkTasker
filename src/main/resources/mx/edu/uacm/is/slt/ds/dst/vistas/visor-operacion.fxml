@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.VisorOperacionController">
+
+    <!-- Top: Menú + Buscador + Título Operación -->
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Archivo">
+                    <MenuItem fx:id="menuItemVolver" text="Volver a Principal"/>
+                </Menu>
+                <Menu text="Ayuda">
+                    <MenuItem fx:id="menuItemAcerca" text="Acerca de"/>
+                </Menu>
+            </MenuBar>
+            <HBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <TextField fx:id="tfBuscarOperacion" promptText="Buscar Tarea" prefWidth="200"/>
+            </HBox>
+            <Label fx:id="lblTituloOperacion" text="Tareas de Operación: [Nombre]" style="-fx-font-size: 18px;">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+            </Label>
+        </VBox>
+    </top>
+
+    <!-- Center: Botones Operación, Botones Tarea + Tabla Tareas -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Botones para pausar/reanudar/detener Operación -->
+            <HBox spacing="10">
+                <Button fx:id="btnPausarOperacion" text="Pausar Operación"/>
+                <Button fx:id="btnReanudarOperacion" text="Reanudar Operación"/>
+                <Button fx:id="btnDetenerOperacion" text="Detener Operación"/>
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Botones gestión de Tareas -->
+            <HBox spacing="10">
+                <Button fx:id="btnNuevaTarea" text="+ Tarea"/>
+                <Button fx:id="btnEditarTarea" text="Editar Tarea"/>
+                <Button fx:id="btnEliminarTarea" text="Eliminar Tarea"/>
+                <Button fx:id="btnReordenarTareas" text="Reordenar Tareas"/>
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Tabla de Tareas -->
+            <TableView fx:id="tableTareas" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
+                    <TableColumn fx:id="colEstadoTarea" text="Estado" prefWidth="100"/>
+                    <TableColumn fx:id="colFechaLimite" text="Fecha límite" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Bottom: Paginación de Tareas -->
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Pagination fx:id="paginationTareas" pageCount="1" maxPageIndicatorCount="5"/>
+        </HBox>
+    </bottom>
+</BorderPane>
