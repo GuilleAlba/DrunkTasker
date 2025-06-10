@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.DashboardController">
+
+    <children>
+        <!-- 1) Aquí va tu BorderPane “normal” con top/center/bottom -->
+        <BorderPane>
+            <!-- Top: Menú + KPIs -->
+            <top>
+                <VBox>
+                    <MenuBar>
+                        <Menu text="Archivo">
+                            <MenuItem fx:id="menuItemSalir" text="Salir"/>
+                        </Menu>
+                        <Menu text="Ayuda">
+                            <MenuItem fx:id="menuItemAcerca" text="Acerca de"/>
+                        </Menu>
+                    </MenuBar>
+                    <HBox spacing="20">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <!-- KPIs -->
+                        <VBox spacing="5" style="-fx-border-color: lightgray; -fx-border-radius: 5; -fx-padding: 10;">
+                            <Label text="Total Operaciones" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="lblTotalOperaciones" text="0"/>
+                        </VBox>
+                        <VBox spacing="5" style="-fx-border-color: lightgray; -fx-border-radius: 5; -fx-padding: 10;">
+                            <Label text="Tareas Pendientes" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="lblTareasPendientes" text="0"/>
+                        </VBox>
+                        <VBox spacing="5" style="-fx-border-color: lightgray; -fx-border-radius: 5; -fx-padding: 10;">
+                            <Label text="Tareas Completadas" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="lblTareasCompletadasHoy" text="0"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnIrGestion" text="Ir a Gestión" />
+                    </HBox>
+                </VBox>
+            </top>
+
+            <!-- Center: Tabla de Operaciones -->
+            <center>
+                <VBox>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <Label text="Operaciones Recientes" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <TableView fx:id="tableOperaciones" prefHeight="300">
+                        <columns>
+                            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="200"/>
+                            <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                            <TableColumn fx:id="colFechaCreacion" text="Fecha creación" prefWidth="160"/>
+                            <TableColumn fx:id="colAcciones" text="Acciones" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </center>
+
+            <!-- Bottom: Barra de estado -->
+            <bottom>
+                <HBox style="-fx-background-color: #f0f0f0;" alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets top="5" right="10" bottom="5" left="10"/>
+                    </padding>
+                    <Label fx:id="lblStatus" text="Listo."/>
+                </HBox>
+            </bottom>
+        </BorderPane>
+
+        <!-- 2) Luego, sobre ese BorderPane va el botón flotante -->
+        <Button fx:id="btnNuevaOperacion" text="+"
+                style="-fx-background-radius: 50;
+                       -fx-min-width: 40;
+                       -fx-min-height: 40;
+                       -fx-background-color: #2a73cc;
+                       -fx-text-fill: white;
+                       -fx-font-size: 18px;"
+                StackPane.alignment="BOTTOM_RIGHT">
+            <StackPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </StackPane.margin>
+        </Button>
+    </children>
+</StackPane>
+
+

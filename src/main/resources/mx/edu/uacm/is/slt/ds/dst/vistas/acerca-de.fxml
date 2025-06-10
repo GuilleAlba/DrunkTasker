@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.AcercaDeController">
+
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="DrunkTasker v1.0.0" style="-fx-font-size:18px;"/>
+            <Label text="Fecha de lanzamiento: 04/06/2025"/>
+            <Separator prefWidth="300"/>
+            <Label text="Equipo de desarrollo:" style="-fx-font-weight:bold;"/>
+            <Label text="• Guillermo Albarrán – Lead Developer"/>
+            <Label text="• Alan Pérez – Frontend/JavaFX"/>
+            <Label text="• Óscar Cruz – Backend/Hilos"/>
+            <Label text="• Francisco Cruz – QA/Pruebas"/>
+            <Label text="• Neil Martínez – UX/UI"/>
+            <Label text="• Noé Sánchez – Integración/DevOps"/>
+            <Separator prefWidth="300"/>
+            <Label text="Contacto: equipo.drunktasker@example.com"/>
+            <Button fx:id="btnCerrar" text="Cerrar" prefWidth="100"/>
+        </VBox>
+    </center>
+</BorderPane>
+
+

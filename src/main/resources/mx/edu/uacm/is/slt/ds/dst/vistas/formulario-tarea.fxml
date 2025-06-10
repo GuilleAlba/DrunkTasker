@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.EditorTareaController"
+            fx:id="dialogPane">
+
+    <content>
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Fila 0: Título -->
+            <Label text="Título:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfTitulo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- Fila 1: Descripción -->
+            <Label text="Descripción:" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextArea fx:id="taDescripcion" prefRowCount="2" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- Fila 2: Fecha límite -->
+            <Label text="Fecha límite:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="dpFechaLimite" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <!-- Fila 3: Estado -->
+            <Label text="Estado:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="cbEstado" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <!-- Fila 4: Precondiciones -->
+            <Label text="Precondiciones:" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextArea fx:id="taPrecondiciones" prefRowCount="2" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <!-- Fila 5: Postcondiciones -->
+            <Label text="Postcondiciones:" GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextArea fx:id="taPostcondiciones" prefRowCount="2" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+            <!-- Fila 6: Comportamiento -->
+            <Label text="Comportamiento:" GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextArea fx:id="taComportamiento" prefRowCount="2" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="btnGuardar" text="Guardar" buttonData="OK_DONE"/>
+        <ButtonType fx:id="btnCancelar" text="Cancelar" buttonData="CANCEL_CLOSE"/>
+    </buttonTypes>
+</DialogPane>

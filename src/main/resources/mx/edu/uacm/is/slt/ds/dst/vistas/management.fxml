@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+   Asegúrate de que aquí apunte a tu clase ManagementController
+   (y que esa clase exista en el paquete exacto).
+-->
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.ManagementController">
+
+    <!-- Top: Menú y título -->
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Archivo">
+                    <MenuItem fx:id="menuItemVolver" text="Volver a Dashboard"/>
+                    <MenuItem fx:id="menuItemSalir" text="Salir"/>
+                </Menu>
+                <Menu text="Ayuda">
+                    <MenuItem fx:id="menuItemAcerca" text="Acerca de"/>
+                </Menu>
+            </MenuBar>
+            <HBox>
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Gestión de Operaciones y Tareas"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center: SplitPane vertical (Operaciones | Tareas) -->
+    <center>
+        <SplitPane dividerPositions="0.4">
+
+            <!-- Panel Izquierdo: Operaciones -->
+            <VBox>
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Operaciones" style="-fx-font-weight: bold;"/>
+                <TableView fx:id="tableOperaciones" prefHeight="200">
+                    <columns>
+                        <TableColumn fx:id="colGNombre" text="Nombre" prefWidth="180"/>
+                        <TableColumn fx:id="colGEstado" text="Estado" prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="5" alignment="CENTER">
+                    <padding>
+                        <Insets top="5" right="0" bottom="5" left="0"/>
+                    </padding>
+                    <Button fx:id="btnNuevaOp_G" text="+ Operación"/>
+                    <Button fx:id="btnEditarOp_G" text="Editar Operación" disable="true"/>
+                    <Button fx:id="btnEliminarOp_G" text="Eliminar Operación" disable="true"/>
+                    <Button fx:id="btnPausarOp_G" text="Pausar" disable="true"/>
+                    <Button fx:id="btnReanudarOp_G" text="Reanudar" disable="true"/>
+                    <Button fx:id="btnSuspenderOp_G" text="Suspender" disable="true"/>
+                </HBox>
+            </VBox>
+
+            <!-- Panel Derecho: Tareas -->
+            <VBox>
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label fx:id="lblTituloTareas"
+                       text="Seleccione una Operación"
+                       style="-fx-font-weight: bold;"/>
+                <TableView fx:id="tableTareas" prefHeight="200" disable="true">
+                    <columns>
+                        <TableColumn fx:id="colTTitulo" text="Título" prefWidth="180"/>
+                        <TableColumn fx:id="colTEstado" text="Estado" prefWidth="100"/>
+                        <TableColumn fx:id="colTFechaLimite" text="Fecha límite" prefWidth="120"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="5" alignment="CENTER">
+                    <padding>
+                        <Insets top="5" right="0" bottom="5" left="0"/>
+                    </padding>
+                    <Button fx:id="btnNuevaTarea_G" text="+ Tarea" disable="true"/>
+                    <Button fx:id="btnEditarTarea_G" text="Editar Tarea" disable="true"/>
+                    <Button fx:id="btnEliminarTarea_G" text="Eliminar Tarea" disable="true"/>
+                </HBox>
+            </VBox>
+
+        </SplitPane>
+    </center>
+
+    <!-- Bottom: Barra de estado -->
+    <bottom>
+        <HBox style="-fx-background-color: #f0f0f0;" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10"/>
+            </padding>
+            <Label fx:id="lblStatusGestion" text="Listo."/>
+        </HBox>
+    </bottom>
+</BorderPane>
