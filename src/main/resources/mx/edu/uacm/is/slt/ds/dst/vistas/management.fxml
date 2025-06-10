@@ -3,15 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<!--
-   Asegúrate de que aquí apunte a tu clase ManagementController
-   (y que esa clase exista en el paquete exacto).
--->
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.ManagementController">
 
-    <!-- Top: Menú y título -->
     <top>
         <VBox>
             <MenuBar>
