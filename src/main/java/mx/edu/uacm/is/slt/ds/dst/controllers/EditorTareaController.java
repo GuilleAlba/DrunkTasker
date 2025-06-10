@@ -34,21 +34,19 @@ public class EditorTareaController {
 
     @FXML
     public void initialize() {
-        // Poblar el combo con los estados de tarea
+        // Poblamos el ComboBox con todos los valores
         cbEstado.getItems().setAll(EnumEstadoTarea.values());
 
-        // Interceptar el botón “Guardar” para validar antes de cerrar el diálogo
+        // Capturamos el botón “Guardar”
         Button botonGuardar = (Button) dialogPane.lookupButton(btnGuardar);
         botonGuardar.addEventFilter(
                 ActionEvent.ACTION,
                 event -> {
-                    if (!hacerGuardar()) {
-                        // Si la validación falla, cancelamos el cierre
-                        event.consume();
-                    }
+                    if (!hacerGuardar()) event.consume();
                 }
         );
     }
+
 
     /**
      * Realiza la validación y, en caso exitoso, crea o edita la tarea.
@@ -87,7 +85,7 @@ public class EditorTareaController {
         }
 
         if (tareaEdit == null) {
-            // Crear nueva tarea
+            // Crear nueva Tarea
             Tarea tNueva = gestor.crearTarea(
                     operacionActual.getId(),
                     titulo,
@@ -95,11 +93,8 @@ public class EditorTareaController {
                     fechaLim
             );
             if (tNueva != null) {
-                // Asignamos los valores adicionales de estado y texto
                 tNueva.setEstado(estSel);
-                tNueva.setPrecondiciones(pre);
-                tNueva.setPostcondiciones(post);
-                tNueva.setComportamiento(comp);
+                // …
             }
         } else {
             // Editar tarea existente

@@ -132,7 +132,7 @@ public class Gestor {
                 t.setTitulo(nuevoTitulo);
                 t.setDescripcion(nuevaDescripcion);
                 t.setFechaLimite(nuevaFechaLimite);
-                t.setEstado(nuevoEstado);
+                t.setEstado(nuevoEstado);             // ← aquí es donde cambia el estado
                 t.setPrecondiciones(nuevasPrecondiciones);
                 t.setPostcondiciones(nuevasPostcondiciones);
                 t.setComportamiento(nuevoComportamiento);

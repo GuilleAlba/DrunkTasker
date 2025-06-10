@@ -13,7 +13,7 @@
     <properties>
         <!-- Usar Java 21 -->
         <java.version>21</java.version>
-        <!-- JavaFX 21.0.2 (ya disponible en Maven Central) -->
+        <!-- JavaFX 21.0.2  -->
         <javafx.version>21.0.2</javafx.version>
         <junit.version>5.10.2</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

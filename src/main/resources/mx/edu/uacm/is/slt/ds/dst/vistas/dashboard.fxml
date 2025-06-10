@@ -8,7 +8,6 @@
            fx:controller="mx.edu.uacm.is.slt.ds.dst.controllers.DashboardController">
 
     <children>
-        <!-- 1) Aquí va tu BorderPane “normal” con top/center/bottom -->
         <BorderPane>
             <!-- Top: Menú + KPIs -->
             <top>

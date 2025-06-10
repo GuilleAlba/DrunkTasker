@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mx.edu.uacm.is.slt.ds.dst.modelos.EnumEstadoTarea;
 import mx.edu.uacm.is.slt.ds.dst.modelos.Operacion;
@@ -20,7 +19,7 @@ import java.util.List;
 
 /**
  * Controlador para la ventana "Dashboard" de DrunkTasker.
- * Muestra KPIs (total de operaciones, tareas pendientes/completadas) y lista operaciones recientes.
+ * Muestra KPIs (total de operaciones, tareas pendientes/completadas hoy) y lista operaciones recientes.
  */
 public class DashboardController {
 
@@ -99,26 +98,28 @@ public class DashboardController {
      * Calcula y actualiza los KPIs en el panel superior del Dashboard:
      * - Total de Operaciones
      * - Tareas Pendientes
-     * - Tareas Completadas (en este ejemplo, se deja en 0).
+     * - Tareas Completadas Hoy (en este ejemplo, se deja en 0).
      */
+
+
     private void actualizarKPIs() {
         List<Operacion> todas = gestor.obtenerOperacionesAgrupadasPorEstado();
-        // 1) Contar total de operaciones
         lblTotalOperaciones.setText(String.valueOf(todas.size()));
 
         int pendientes = 0;
-        int completadas = 0;
+        int completadasHoy = 0;
         for (Operacion op : todas) {
             for (Tarea t : op.getTareas()) {
+                System.out.println("→ Tarea “" + t.getTitulo() + "” tiene estado: " + t.getEstado());
                 if (t.getEstado() == EnumEstadoTarea.PENDIENTE) {
                     pendientes++;
                 } else if (t.getEstado() == EnumEstadoTarea.COMPLETADA) {
-                    completadas++;
+                    completadasHoy++;
                 }
             }
         }
         lblTareasPendientes.setText(String.valueOf(pendientes));
-        lblTareasCompletadasHoy.setText(String.valueOf(completadas));
+        lblTareasCompletadasHoy.setText(String.valueOf(completadasHoy));
     }
 
 
@@ -131,6 +132,13 @@ public class DashboardController {
         tableOperaciones.setItems(operacionesData);
     }
 
+    /**
+     * Asocia los eventos a botones y menús:
+     * - btnIrGestion: abre vista de gestión
+     * - btnNuevaOperacion: muestra formulario para crear nueva operación
+     * - menuItemSalir: sale de la aplicación
+     * - menuItemAcerca: abre ventana "Acerca de"
+     */
     private void configurarEventos() {
         // Botón "Ir a Gestión"
         btnIrGestion.setOnAction(this::accionIrGestion);
@@ -209,17 +217,14 @@ public class DashboardController {
             ventana.setTitle("Gestión de Operación: " + op.getNombre());
             ventana.setScene(escena);
 
-            // Marcarla como ventana modal, de manera que el Dashboard espere…
-            ventana.initModality(Modality.APPLICATION_MODAL);
-
-            // Pasar la operación al ManagementController
+            // Pasamos la Operación al controller de Gestión:
             ManagementController ctrl = loader.getController();
             ctrl.setOperacionSeleccionada(op);
 
-            // Mostrarla y bloquear hasta que el usuario la cierre
+            // En vez de show(), usamos showAndWait(), para que espere a que cierres Gestión:
             ventana.showAndWait();
 
-            // **** Aquí el Dashboard “despierta” tras cerrar Gestión, y volvemos a refrescar ****
+            // Una vez que el usuario haya cerrado la ventana de Gestión, volvemos a recargar:
             actualizarKPIs();
             cargarOperacionesRecientes();
         } catch (Exception ex) {
@@ -227,7 +232,6 @@ public class DashboardController {
             lblStatus.setText("Error al abrir Gestión");
         }
     }
-
 
 
     /**
@@ -251,4 +255,3 @@ public class DashboardController {
         }
     }
 }
-

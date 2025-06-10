@@ -159,7 +159,3 @@ public class EditorOperacionController {
         this.operacionEdit = operacionEdit;
     }
 }
-
-
-
-
