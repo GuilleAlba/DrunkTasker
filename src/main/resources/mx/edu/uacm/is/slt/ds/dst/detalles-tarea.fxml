@@ -14,5 +14,36 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <Button onAction="#btnRegresar" text="Regresar" />
-    <Label fx:id="tareaNombre"/>
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets bottom="30.0"/>
+        </padding>
+        <Label text="Detalles de Tarea" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    </HBox>
+    <VBox spacing="20">
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Id: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="id" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Nombre: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="nombre" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Descripcion: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="descripcion" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Estado: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="estado" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Prioridad: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="prioridad" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Pausable: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="pausable" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+    </VBox>
 </VBox>

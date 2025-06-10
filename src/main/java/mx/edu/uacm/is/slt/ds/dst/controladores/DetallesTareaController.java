@@ -8,11 +8,26 @@ import java.io.IOException;
 
 public class DetallesTareaController {
     @FXML
-    private Label tareaNombre;
+    private Label id;
+    @FXML
+    private Label nombre;
+    @FXML
+    private Label descripcion;
+    @FXML
+    private Label estado;
+    @FXML
+    private Label prioridad;
+    @FXML
+    private Label pausable;
     private final Gestor gestor = Gestor.getInstance();
 
     public void initialize() {
-        tareaNombre.setText(gestor.getTereaSeleccionada().getNombre());
+        id.setText(String.valueOf(gestor.getTereaSeleccionada().getId()));
+        nombre.setText(gestor.getTereaSeleccionada().getNombre());
+        descripcion.setText(gestor.getTereaSeleccionada().getDescripcion());
+        estado.setText(gestor.getTereaSeleccionada().getEstado());
+        prioridad.setText(gestor.getTereaSeleccionada().getPrioridad());
+        pausable.setText(gestor.getTereaSeleccionada().isPausa() ? "SI" : "NO");
     }
     @FXML
     public void btnRegresar() {

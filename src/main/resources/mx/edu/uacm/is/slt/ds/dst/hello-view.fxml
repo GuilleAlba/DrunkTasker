@@ -4,6 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox spacing="20.0"
       xmlns:fx="http://javafx.com/fxml"
       xmlns="http://javafx.com/javafx"
@@ -12,7 +14,14 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <HBox spacing="10">
+        <Label text="Menu: "/>
         <Button onAction="#irOperacionesButtonClick" text="Ir Operaciones" />
         <Button onAction="#irAcercaDe" text="Acerca de"/>
     </HBox>
+    <VBox spacing="20" alignment="CENTER">
+        <Label text="Drunk-Tasker" style="-fx-font-size: 26px; -fx-font-weight: bold;" alignment="CENTER"/>
+        <ImageView fitWidth="300" fitHeight="360">
+            <Image url="@/imagenes/drunk.png"/>
+        </ImageView>
+    </VBox>
 </VBox>

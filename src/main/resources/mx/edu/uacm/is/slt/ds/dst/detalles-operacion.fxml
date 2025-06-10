@@ -6,9 +6,87 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="mx.edu.uacm.is.slt.ds.dst.controladores.DetallesOperacionController">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="mx.edu.uacm.is.slt.ds.dst.controladores.DetallesOperacionController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
     <Button onAction="#btnRegresar" text="Regresar" />
-    <Label fx:id="operacionSelec" />
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets bottom="30.0"/>
+        </padding>
+        <Label text="Detalles de Operacion" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    </HBox>
+    <VBox spacing="20">
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Id: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="id" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Nombre: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="nombre" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Descripcion: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="descripcion" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10" VBox.vgrow="NEVER">
+            <Label text=" Estado: " style="-fx-font-weight: bold; -fx-min-width: 100;"/>
+            <Label fx:id="estado" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+            <Label text="TAREAS" style="-fx-font-weight: bold;"/>
+        </VBox>
+        <TableView fx:id="tareasTable" prefHeight="200">
+            <columns>
+                <TableColumn text="Id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Nombre">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nombre"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Descripcion">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="descripcion"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Estado" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="estado"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Detalles">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="ver"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Ejecutar">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="play"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Detener">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="detener"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Pausa">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pausaB"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
 </VBox>
